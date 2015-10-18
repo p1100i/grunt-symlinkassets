@@ -1,0 +1,37 @@
+{
+  "name": "grunt-symlinkassets",
+  "description": "Swap asset src/href using symlinks.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/p1100i/grunt-symlinkassets",
+  "author": {
+    "name": "peters",
+    "email": "p1100i.dev@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/p1100i/grunt-symlinkassets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/p1100i/grunt-symlinkassets/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/p1100i/grunt-symlinkassets/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "keywords": [
+    "md5",
+    "symlink",
+    "hash",
+    "replace",
+    "asset"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "cheerio": "^0.19.0"
+  }
+}
