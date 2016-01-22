@@ -20,12 +20,20 @@ var
     }
   },
 
+  log = function log(chalkColor, messages) {
+    grunt.log.writeln(chalkColor.apply(this, messages));
+  },
+
   isSymlink = function isSymlink(nodeInfo, nodePath) {
     return nodeInfo.lstat.isSymbolicLink();
   },
 
   getAssetSelector = function getAssetSelector(symlinkType, src) {
     return symlinkType.tag + '[' + symlinkType.attribute + '="' + src + '"]';
+  },
+
+  getSwappingMessage = function getSwappingMessage(symlinkType, src, newSrc) {
+    return symlinkType.attribute + ' on <' + symlinkType.tag + '> : ' + src + ' => ' + newSrc]);
   },
 
   useSymlinkedAssets = function useSymlinkedAssets(HTML) {
@@ -48,9 +56,9 @@ var
 
       if (tag.length) {
         tag.attr(symlinkType.attribute, newSrc);
-        grunt.log.writeln(chalk.green('swapping asset ' + symlinkType.attribute + ' on <' + symlinkType.tag + '> : ' + src + ' => ' + newSrc));
+        log(chalk.green, ['swapping asset ' + getSwappingMessage(symlinkType, src, newSrc)]);
       } else {
-        grunt.log.writeln(chalk.blue('no asset found for selector ' + selector));
+        log(chalk.blue, ['no asset found for selector ' + selector]);
       }
     }
 
@@ -120,7 +128,7 @@ var
       return;
     }
 
-    grunt.log.writeln(chalk.green('scanning ' + nodePath));
+    log(chalk.green, ['scanning ' + nodePath]);
 
     HTML = grunt.file.read(nodePath);
     HTML = useSymlinkedAssets(HTML);
