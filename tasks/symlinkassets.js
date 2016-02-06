@@ -33,7 +33,7 @@ var
   },
 
   getSwappingMessage = function getSwappingMessage(symlinkType, src, newSrc) {
-    return symlinkType.attribute + ' on <' + symlinkType.tag + '> : ' + src + ' => ' + newSrc]);
+    return symlinkType.attribute + ' on <' + symlinkType.tag + '> : ' + src + ' => ' + newSrc;
   },
 
   useSymlinkedAssets = function useSymlinkedAssets(HTML) {
@@ -89,7 +89,10 @@ var
       rootIndex   = dirs.indexOf(root);
 
     dirs = dirs.slice(rootIndex + 1);
-    dirs.unshift(prefix);
+
+    if (prefix !== undefined) {
+      dirs.unshift(prefix);
+    }
 
     src = dirs.join(path.sep);
 
