@@ -2,11 +2,11 @@ var
   root,
   grunt,
   prefix,
+  symlinks,
   fs        = require('fs'),
   path      = require('path'),
   chalk     = require('chalk'),
   cheerio   = require('cheerio'),
-  symlinks  = {},
 
   symlinkTypes = {
     '.js' : {
@@ -144,8 +144,9 @@ var
   },
 
   run = function run() {
-    prefix  = this.data.prefix;
-    root    = this.data.root;
+    symlinks  = {};
+    prefix    = this.data.prefix;
+    root      = this.data.root;
 
     this.files.forEach(scanSymlinks);
     this.files.forEach(scanHTMLs);
