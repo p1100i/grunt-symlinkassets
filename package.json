@@ -1,7 +1,7 @@
 {
   "name": "grunt-symlinkassets",
   "description": "Swap asset src/href using symlinks.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/p1100i/grunt-symlinkassets",
   "author": {
     "name": "p1100i",
